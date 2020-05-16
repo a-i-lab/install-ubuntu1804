@@ -24,3 +24,7 @@ sudo sensors-detect
 sensors
 sudo apt install psensor -y
 
+read -p "What is your git username? :" username
+git config --global user.name "$username"
+read -p "What is your git email? :" email
+git config --global user.email $email
