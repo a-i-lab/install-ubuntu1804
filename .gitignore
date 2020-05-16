@@ -1,6 +1,8 @@
 # Generic folders
 __pycache__/
 .vscode/
+cuda-testing/
+utils/
 
 # Top level CMakeLists.txt
 src/CMakeLists.txt
@@ -62,3 +64,4 @@ qtcreator-*
 
 # Catkin custom files
 CATKIN_IGNORE
+.catkin_workspace
