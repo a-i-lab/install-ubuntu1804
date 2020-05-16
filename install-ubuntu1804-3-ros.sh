@@ -11,6 +11,7 @@ source ~/.bashrc
 sudo apt install -y python-rosdep python-rosinstall python-rosinstall-generator python-wstool build-essential
 sudo rosdep init
 rosdep update
+source ~/.bashrc
 sudo apt install -y ros-${ROS_DISTRO}-rosserial ros-${ROS_DISTRO}-rosserial-server
 rosdep install --from-paths src --ignore-src --rosdistro=${ROS_DISTRO} -y
 catkin_make

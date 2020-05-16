@@ -6,7 +6,7 @@ sudo apt upgrade
 mkdir utils
 cd utils
 
-sudo apt install git htop clang-format curl wget software-properties-common apt-transport-https -y
+sudo apt install git htop clang-format curl wget software-properties-common apt-transport-https python3-pip libssl-dev libffi-dev python3-dev -y
 
 echo "#######################Downloading chrome#######################\n"
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
