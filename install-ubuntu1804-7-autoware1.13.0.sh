@@ -17,8 +17,8 @@ mkdir eigen && tar --strip-components=1 -xzvf 3.3.7.tar.gz -C eigen
 cd eigen && mkdir build && cd build && cmake .. && make && make install
 
 cd
-mkdir -p autoware.ai/src
-cd autoware.ai
+mkdir -p lgsvl_ws/autoware.ai/src
+cd lgsvl_ws/autoware.ai
 wget -O autoware.ai.repos "https://gitlab.com/autowarefoundation/autoware.ai/autoware/raw/1.13.0/autoware.ai.repos?inline=false"
 vcs import src < autoware.ai.repos
 rosdep update

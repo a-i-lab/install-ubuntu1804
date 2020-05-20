@@ -1,4 +1,4 @@
-#!/bin/bash
+# #!/bin/bash
 
 DIR=$(pwd)
 
@@ -44,7 +44,7 @@ sudo apt-get install libprotobuf-dev libgoogle-glog-dev libgflags-dev -y
 
 cd $DIR
 cd utils
-OPEN_CV_VER=4.1.2
+OPEN_CV_VER=3.4.10
 
 wget -O opencv.zip https://github.com/opencv/opencv/archive/$OPEN_CV_VER.zip
 wget -O opencv_contrib.zip https://github.com/opencv/opencv_contrib/archive/$OPEN_CV_VER.zip
@@ -80,7 +80,10 @@ cmake -D CMAKE_BUILD_TYPE=RELEASE \
         -D WITH_CUDA=ON \
         -D ENABLE_FAST_MATH=ON \
         -D CUDA_FAST_MATH=ON \
-        -D WITH_CUBLAS=ON ..
+        -D WITH_CUBLAS=ON \
+        -D BUILD_opencv_cudacodec=OFF ..
+
+# -D ENABLE_PRECOMPILED_HEADERS=OFF
 
 make -j4
 
