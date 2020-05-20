@@ -4,35 +4,36 @@ DIR=$(pwd)
 
 echo "#######################install opencv4.1.2########################\n"
 sudo apt-get update
-sudo apt-get upgrade
+sudo apt-get upgrade -y
 
-sudo apt-get install build-essential cmake git unzip pkg-config
+sudo apt-get install build-essential cmake git unzip pkg-config -y
 
-sudo apt-get install libjpeg-dev libpng-dev libtiff-dev
-sudo apt-get install libavcodec-dev libavformat-dev libswscale-dev
-sudo apt-get install libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev
-sudo apt-get install libfaac-dev libmp3lame-dev libtheora-dev
-sudo apt-get install libavresample-dev libvorbis-dev
-sudo apt-get install libopencore-amrnb-dev libopencore-amrwb-dev
-sudo apt-get install libgtk2.0-dev libcanberra-gtk*
-sudo apt-get install x264 libxvidcore-dev libx264-dev libgtk-3-dev
-sudo apt-get install python3-dev python3-numpy python3-pip
-sudo apt-get install python3-testresources
-sudo apt-get install libtbb2 libtbb-dev libdc1394-22-dev
-sudo apt-get install libv4l-dev v4l-utils
+sudo apt-get install libjpeg-dev libpng-dev libtiff-dev -y
+sudo apt-get install libavcodec-dev libavformat-dev libswscale-dev -y
+sudo apt-get install libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev -y
+sudo apt-get install libfaac-dev libmp3lame-dev libtheora-dev -y
+sudo apt-get install libavresample-dev libvorbis-dev -y
+sudo apt-get install libopencore-amrnb-dev libopencore-amrwb-dev -y
+sudo apt-get install libgtk2.0-dev libcanberra-gtk* -y
+sudo apt-get install x264 libxvidcore-dev libx264-dev libgtk-3-dev -y
+sudo apt-get install python3-dev python3-numpy python3-pip -y
+sudo apt-get install python3-testresources -y
+sudo apt-get install libtbb2 libtbb-dev libdc1394-22-dev -y
+sudo apt-get install libv4l-dev v4l-utils -y
 cd /usr/include/linux
 sudo ln -s -f ../libv4l1-videodev.h videodev.h
-sudo apt-get install libxine2-dev
-sudo apt-get install software-properties-common
+sudo apt-get install libxine2-dev -y
+sudo apt-get install software-properties-common -y
 sudo add-apt-repository "deb http://security.ubuntu.com/ubuntu xenial-security main"
 sudo apt-get update
-sudo apt-get install libjasper-dev
-sudo apt-get install libopenblas-dev libatlas-base-dev libblas-dev
-sudo apt-get install liblapack-dev gfortran
-sudo apt-get install libhdf5-dev protobuf-compiler
-sudo apt-get install libprotobuf-dev libgoogle-glog-dev libgflags-dev
+sudo apt-get install libjasper-dev -y
+sudo apt-get install libopenblas-dev libatlas-base-dev libblas-dev -y
+sudo apt-get install liblapack-dev gfortran -y
+sudo apt-get install libhdf5-dev protobuf-compiler -y
+sudo apt-get install libprotobuf-dev libgoogle-glog-dev libgflags-dev -y
 
-cd DIR
+cd $DIR
+cd utils
 
 wget -O opencv.zip https://github.com/opencv/opencv/archive/4.1.2.zip
 wget -O opencv_contrib.zip https://github.com/opencv/opencv_contrib/archive/4.1.2.zip
@@ -68,8 +69,9 @@ cmake -D CMAKE_BUILD_TYPE=RELEASE \
         -D WITH_CUDA=ON \
         -D ENABLE_FAST_MATH=ON \
         -D CUDA_FAST_MATH=ON \
-        -D CUDA_NVCC_FLAGS=”-D_FORCE_INLINES –expt-relaxed-constexpr” \
         -D WITH_CUBLAS=ON ..
 
 make -j4
 sudo make install
+sudo ldconfig
+sudo apt-get update

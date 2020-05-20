@@ -29,13 +29,22 @@ sudo apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/
 echo "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64 /" | sudo tee /etc/apt/sources.list.d/cuda.list
 sudo apt-get update
 
- # installing CUDA-10.1
+ # installing CUDA-10.0
 sudo apt-get -o Dpkg::Options::="--force-overwrite" install cuda-10-0 cuda-drivers
 
 echo 'export PATH=/usr/local/cuda-10.0/bin:$PATH' >> ~/.bashrc
 echo 'export LD_LIBRARY_PATH=/usr/local/cuda-10.0/lib64:$LD_LIBRARY_PATH' >> ~/.bashrc
 source ~/.bashrc
 sudo ldconfig
+
+# install cudnn https://docs.nvidia.com/deeplearning/sdk/cudnn-install/index.html
+CUDNN_TAR_FILE="cudnn-10.0-linux-x64-v7.6.5.32.tgz"
+wget https://developer.nvidia.com/compute/machine-learning/cudnn/secure/7.6.5.32/Production/10.0_20191031/Ubuntu18_04-x64/libcudnn7-doc_7.6.5.32-1%2Bcuda10.0_amd64.deb
+wget https://developer.nvidia.com/compute/machine-learning/cudnn/secure/7.6.5.32/Production/10.0_20191031/cudnn-10.0-linux-x64-v7.6.5.32.tgz
+tar -xzvf ${CUDNN_TAR_FILE}
+sudo cp cuda/include/cudnn.h /usr/local/cuda/include
+sudo cp cuda/lib64/libcudnn* /usr/local/cuda/lib64
+sudo chmod a+r /usr/local/cuda/include/cudnn.h /usr/local/cuda/lib64/libcudnn*
 
 cd ..
 mkdir cuda-testing

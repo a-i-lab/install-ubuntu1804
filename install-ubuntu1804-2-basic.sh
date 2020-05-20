@@ -6,10 +6,24 @@ sudo apt upgrade
 mkdir utils
 cd utils
 
-sudo apt install git htop clang-format curl wget software-properties-common apt-transport-https python3-pip libssl-dev libffi-dev python3-dev -y
+sudo apt install unzip git htop clang-format curl wget software-properties-common apt-transport-https python-pip python3-pip libssl-dev libffi-dev python3-dev -y
+
+echo "#######################Downloading Cmake#######################\n"
+wget https://github.com/Kitware/CMake/releases/download/v3.17.2/cmake-3.17.2.tar.gz
+tar xvzf cmake-3.17.2.tar.gz 
+cd cmake-3.17.2
+./bootstrap --system-curl
+make -j4
+sudo make install
+cd ..
+
+echo "#######################Downloading git lfs#######################\n"
+curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
+sudo apt-get install git-lfs -y
+git lfs install
 
 echo "#######################Downloading chrome#######################\n"
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo apt install ./google-chrome-stable_current_amd64.deb -y
 
 echo "#######################Downloading typora#######################\n"
