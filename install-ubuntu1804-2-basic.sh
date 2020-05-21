@@ -9,7 +9,7 @@ cd utils
 sudo apt install unzip git htop clang-format curl wget software-properties-common apt-transport-https python-pip python3-pip libssl-dev libffi-dev python3-dev zlib1g-dev libcurl4-openssl-dev -y
 
 echo "#######################Downloading Cmake#######################\n"
-wget https://github.com/Kitware/CMake/releases/download/v3.17.2/cmake-3.17.2.tar.gz
+wget -O https://github.com/Kitware/CMake/releases/download/v3.17.2/cmake-3.17.2.tar.gz
 tar xvzf cmake-3.17.2.tar.gz 
 cd cmake-3.17.2
 ./bootstrap --system-curl

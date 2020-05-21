@@ -1,4 +1,4 @@
-# #!/bin/bash
+#!/bin/bash
 
 # DIR=$(pwd)
 
@@ -9,20 +9,20 @@
 # sudo apt install -y python3-pip python3-colcon-common-extensions python3-setuptools python3-vcstool
 # pip3 install -U setuptools
 # python -m pip install tornado
-# pip install pymongo
 # pip install bson
 # cd utils
 # wget http://bitbucket.org/eigen/eigen/get/3.3.7.tar.gz
 # mkdir eigen && tar --strip-components=1 -xzvf 3.3.7.tar.gz -C eigen
 # cd eigen && mkdir build && cd build && cmake .. && make && sudo make install
 
-# cd
-# mkdir -p lgsvl_ws/autoware.ai/src
-# cd lgsvl_ws/autoware.ai
-# wget -O autoware.ai.repos "https://gitlab.com/autowarefoundation/autoware.ai/autoware/raw/1.13.0/autoware.ai.repos?inline=false"
-# vcs import src < autoware.ai.repos
-# rosdep update
-# rosdep install -y --from-paths src --ignore-src --rosdistro $ROS_DISTRO
+cd
+mkdir -p autoware.ai
+cd autoware.ai
+mkdir src
+wget -O autoware.ai.repos "https://gitlab.com/autowarefoundation/autoware.ai/autoware/raw/1.13.0/autoware.ai.repos?inline=false"
+vcs import src < autoware.ai.repos
+rosdep update
+rosdep install -y --from-paths src --ignore-src --rosdistro $ROS_DISTRO
 AUTOWARE_COMPILE_WITH_CUDA=1 colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release
 
 while true; do
@@ -45,3 +45,5 @@ cd lgsvl_ws/my_src/src
 git clone https://github.com/kangkelvin/lgsvl_startup.git
 cd ..
 catkin_make
+
+pip install pymongo

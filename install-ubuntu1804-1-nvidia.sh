@@ -65,5 +65,3 @@ cd bin/x86_64/linux/release
 nvcc -V
 source ~/.bashrc
 ./deviceQuery
-./nbody
-
