@@ -15,3 +15,4 @@ source ~/.bashrc
 sudo apt install -y ros-${ROS_DISTRO}-rosserial ros-${ROS_DISTRO}-rosserial-server
 rosdep install --from-paths src --ignore-src --rosdistro=${ROS_DISTRO} -y
 catkin_make
+sudo apt install libpcl-dev -y

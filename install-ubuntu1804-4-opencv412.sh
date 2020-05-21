@@ -60,6 +60,7 @@ cd build
 cmake -D CMAKE_BUILD_TYPE=RELEASE \
         -D CMAKE_INSTALL_PREFIX=/usr/local \
         -D OPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules \
+        # -D OPENCV_PYTHON3_INSTALL_PATH=$cwd/OpenCV-$cvVersion-py3/lib/python3.5/site-packages \
         -D BUILD_TIFF=ON \
         -D WITH_FFMPEG=ON \
         -D WITH_GSTREAMER=ON \

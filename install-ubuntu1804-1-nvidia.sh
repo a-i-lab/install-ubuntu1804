@@ -41,9 +41,16 @@ mkdir utils
 cd utils
 # install cudnn https://docs.nvidia.com/deeplearning/sdk/cudnn-install/index.html
 CUDNN_TAR_FILE="cudnn-10.0-linux-x64-v7.6.5.32.tgz"
-# wget https://developer.nvidia.com/compute/machine-learning/cudnn/secure/7.6.5.32/Production/10.0_20191031/Ubuntu18_04-x64/libcudnn7-doc_7.6.5.32-1%2Bcuda10.0_amd64.deb
-# wget https://developer.nvidia.com/compute/machine-learning/cudnn/secure/7.6.5.32/Production/10.0_20191031/cudnn-10.0-linux-x64-v7.6.5.32.tgz
-# tar -xzvf ${CUDNN_TAR_FILE}
+
+while true; do
+    read -p "Please download cudnn from nvidia website and unzip it before proceeding, there should be a folder called 'cuda' inside utils after you unzip it. if you want to continue [Y/n]" yn
+    case $yn in
+        [Yy]* ) break;;
+        [Nn]* ) exit;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done
+
 sudo cp cuda/include/cudnn.h /usr/local/cuda/include
 sudo cp cuda/lib64/libcudnn* /usr/local/cuda/lib64
 sudo chmod a+r /usr/local/cuda/include/cudnn.h /usr/local/cuda/lib64/libcudnn*
