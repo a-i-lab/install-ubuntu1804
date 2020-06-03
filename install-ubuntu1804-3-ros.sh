@@ -15,4 +15,5 @@ source /opt/ros/melodic/setup.bash
 sudo apt install -y ros-${ROS_DISTRO}-rosserial ros-${ROS_DISTRO}-rosserial-server
 rosdep install --from-paths src --ignore-src --rosdistro=${ROS_DISTRO} -y
 sudo apt install libpcl-dev -y
+pip install -U matplotlib
 catkin_make
