@@ -9,9 +9,17 @@ cd utils
 sudo apt install unzip git htop clang-format curl wget software-properties-common apt-transport-https python-pip python3-pip libssl-dev libffi-dev python3-dev zlib1g-dev libcurl4-openssl-dev -y
 
 echo "#######################Downloading Cmake#######################\n"
-wget -O https://github.com/Kitware/CMake/releases/download/v3.17.2/cmake-3.17.2.tar.gz
-tar xvzf cmake-3.17.2.tar.gz 
-cd cmake-3.17.2
+
+while true; do
+    read -p "Please download cmake first from their website and put it under utils/cmake-3.17.3 if you want to continue [Y/n]" yn
+    case $yn in
+        [Yy]* ) break;;
+        [Nn]* ) exit;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done
+
+cd cmake-3.17.3
 ./bootstrap --system-curl
 make -j4
 sudo make install
