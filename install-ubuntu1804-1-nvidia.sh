@@ -65,3 +65,14 @@ cd bin/x86_64/linux/release
 nvcc -V
 source ~/.bashrc
 ./deviceQuery
+
+while true; do
+    read -p "Check the device query output, if all good continue for reboot [Y/n]" yn
+    case $yn in
+        [Yy]* ) break;;
+        [Nn]* ) exit;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done
+
+reboot
