@@ -47,3 +47,4 @@ cd ..
 catkin_make
 
 pip install pymongo
+sudo apt install libvulkan1
