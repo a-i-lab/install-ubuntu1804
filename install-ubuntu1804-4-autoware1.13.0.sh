@@ -1,4 +1,5 @@
 #!/bin/bash
+#https://github.com/Autoware-AI/autoware.ai/wiki/Source-Build
 
 DIR=$(pwd)
 
@@ -20,7 +21,7 @@ cd
 mkdir -p autoware.ai
 cd autoware.ai
 mkdir src
-wget -O autoware.ai.repos "https://gitlab.com/autowarefoundation/autoware.ai/autoware/raw/1.13.0/autoware.ai.repos?inline=false"
+wget -O autoware.ai.repos "https://raw.githubusercontent.com/Autoware-AI/autoware.ai/1.13.0/autoware.ai.repos"
 vcs import src < autoware.ai.repos
 rosdep update
 rosdep install -y --from-paths src --ignore-src --rosdistro $ROS_DISTRO
