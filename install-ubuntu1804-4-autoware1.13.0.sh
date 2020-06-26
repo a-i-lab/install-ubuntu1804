@@ -44,7 +44,7 @@ done
 cd
 mkdir -p lgsvl_ws/my_src/src
 cd lgsvl_ws/my_src/src
-git clone https://github.com/kangkelvin/lgsvl_startup.git
+git clone https://github.com/a-i-lab/lgsvl_startup.git
 cd ..
 catkin_make
 
