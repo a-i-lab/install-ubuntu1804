@@ -46,6 +46,7 @@ mkdir -p lgsvl_ws/my_src/src
 cd lgsvl_ws/my_src/src
 git clone https://github.com/a-i-lab/lgsvl_startup.git
 cd ..
+sudo apt-get install -y ros-melodic-autoware-configs-msgs ros-melodic-autoware-msgs
 catkin_make
 
 pip install pymongo
