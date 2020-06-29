@@ -35,7 +35,7 @@
 
   <img src="media/nvidia-success.png" width="700" height="400" />
 
-  
+   If you get an error that says that the "Nvidia driver is not loaded", try going in to your system BIOS and disabling secure boot. Secure boot can cause your computer to start without the Nvidia driver.
 
 7. You can run the rest of the installation scripts in normal GUI environment from here on
 
