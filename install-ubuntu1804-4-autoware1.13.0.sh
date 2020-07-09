@@ -10,6 +10,8 @@ sudo apt install -y python-catkin-pkg python-rosdep ros-$ROS_DISTRO-catkin
 sudo apt install -y python3-pip python3-colcon-common-extensions python3-setuptools python3-vcstool
 pip3 install -U setuptools
 python -m pip install tornado
+pip install pymongo
+sudo apt install libvulkan1 -y
 pip install bson
 mkdir utils
 cd utils
@@ -18,8 +20,8 @@ mkdir eigen && tar --strip-components=1 -xzvf 3.3.7.tar.gz -C eigen
 cd eigen && mkdir build && cd build && cmake .. && make && sudo make install
 
 cd
-mkdir -p autoware.ai
-cd autoware.ai
+mkdir -p lgsvl_ws/autoware.ai
+cd lgsvl_ws/autoware.ai
 mkdir src
 wget -O autoware.ai.repos "https://raw.githubusercontent.com/Autoware-AI/autoware.ai/1.13.0/autoware.ai.repos"
 vcs import src < autoware.ai.repos
@@ -46,8 +48,6 @@ mkdir -p lgsvl_ws/my_src/src
 cd lgsvl_ws/my_src/src
 git clone https://github.com/a-i-lab/lgsvl_startup.git
 cd ..
+rosdep install -y --from-paths src --ignore-src --rosdistro $ROS_DISTRO
 sudo apt-get install -y ros-melodic-autoware-configs-msgs ros-melodic-autoware-msgs
 catkin_make
-
-pip install pymongo
-sudo apt install libvulkan1

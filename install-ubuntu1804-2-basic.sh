@@ -6,7 +6,7 @@ sudo apt upgrade
 mkdir utils
 cd utils
 
-sudo apt install unzip git htop clang-format curl wget software-properties-common apt-transport-https python-pip python3-pip libssl-dev libffi-dev python3-dev zlib1g-dev libcurl4-openssl-dev -y
+sudo apt install unzip git htop clang-format curl wget software-properties-common apt-transport-https python-pip python3-pip libssl-dev libffi-dev python3-dev zlib1g-dev libcurl4-openssl-dev iperf3 bmon -y
 
 echo "#######################Downloading Cmake#######################\n"
 

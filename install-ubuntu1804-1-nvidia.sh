@@ -66,8 +66,15 @@ nvcc -V
 source ~/.bashrc
 ./deviceQuery
 
+cd /usr/local/cuda/lib64
+sudo rm libcudnn.so
+sudo rm libcudnn.so.7
+sudo ln libcudnn.so.7.6.5 libcudnn.so.7
+sudo ln libcudnn.so.7 libcudnn.so
+sudo ldconfig
+
 while true; do
-    read -p "Check the device query output, if all good continue for reboot [Y/n]" yn
+    read -p "Check the device query output, continue for reboot and try to run cuda [Y/n]" yn
     case $yn in
         [Yy]* ) break;;
         [Nn]* ) exit;;
