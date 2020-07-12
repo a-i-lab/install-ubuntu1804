@@ -1,4 +1,7 @@
-# #!/bin/bash
+#!/usr/bin/env bash
+
+set -euf -o pipefail
+
 # https://gist.github.com/Mahedi-61/2a2f1579d4271717d421065168ce6a73
 echo "#######################install nvidia########################\n"
 sudo apt-get purge nvidia* -y
@@ -74,7 +77,7 @@ sudo ln libcudnn.so.7 libcudnn.so
 sudo ldconfig
 
 while true; do
-    read -p "Check the device query output, continue for reboot and try to run cuda [Y/n]" yn
+    read -p "Check the device query output, continue for reboot and try to run cuda [y/n]" yn
     case $yn in
         [Yy]* ) break;;
         [Nn]* ) exit;;

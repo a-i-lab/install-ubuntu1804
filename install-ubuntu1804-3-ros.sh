@@ -1,4 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
+set -euf -o pipefail
 
 echo "#######################install ros########################\n"
 sudo apt update
