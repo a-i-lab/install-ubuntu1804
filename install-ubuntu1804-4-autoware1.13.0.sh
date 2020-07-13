@@ -12,6 +12,10 @@ pip3 install -U setuptools
 python -m pip install tornado
 pip install pymongo
 sudo apt install libvulkan1 -y
+
+# It is possible for Nvidia Optimus systems to use the wrong GPU. See https://github.com/a-i-lab/install-ubuntu1804/issues/5
+echo "VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/nvidia_icd.json" | sudo tee /etc/environment
+
 pip install bson
 mkdir utils
 cd utils
