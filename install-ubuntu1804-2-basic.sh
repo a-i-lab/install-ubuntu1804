@@ -46,7 +46,34 @@ sudo sensors-detect
 sensors
 sudo apt install psensor -y
 
+sudo add-apt-repository universe -y
+sudo apt update -y
+sudo apt install exfat-fuse exfat-utils -y
+
 read -p "What is your git username? :" username
 git config --global user.name "$username"
 read -p "What is your git email? :" email
 git config --global user.email $email
+
+while true; do
+    read -p "Wireshark will be installed next. Press yes when prompted later on setting up wireshark as root. if you want to continue [Y/n]" yn
+    case $yn in
+        [Yy]* ) break;;
+        [Nn]* ) exit;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done
+
+sudo apt install wireshark -y
+sudo usermod -aG wireshark $(whoami)
+
+while true; do
+    read -p "System will reboot now. if you want to continue [Y/n]" yn
+    case $yn in
+        [Yy]* ) break;;
+        [Nn]* ) exit;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done
+
+sudo reboot
