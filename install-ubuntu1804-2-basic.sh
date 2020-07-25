@@ -1,6 +1,7 @@
 #!/bin/bash
 
 echo "#######################First time update########################\n"
+sudo add-apt-repository ppa:bluetooth/bluez
 sudo apt update
 sudo apt upgrade
 mkdir utils
