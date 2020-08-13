@@ -1,4 +1,7 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
+set -euf -o pipefail
+
 #https://github.com/Autoware-AI/autoware.ai/wiki/Source-Build
 
 DIR=$(pwd)
@@ -49,5 +52,5 @@ cd lgsvl_ws/my_src/src
 git clone https://github.com/a-i-lab/lgsvl_startup.git
 cd ..
 rosdep install -y --from-paths src --ignore-src --rosdistro $ROS_DISTRO
-sudo apt-get install -y ros-melodic-autoware-configs-msgs ros-melodic-autoware-msgs
+sudo apt-get install -y ros-melodic-autoware-config-msgs ros-melodic-autoware-msgs
 catkin_make

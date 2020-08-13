@@ -1,4 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
+set -euf -o pipefail
 
 echo "#######################First time update########################\n"
 sudo add-apt-repository ppa:bluetooth/bluez
