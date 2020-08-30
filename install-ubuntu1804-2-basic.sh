@@ -6,23 +6,15 @@ echo "#######################First time update########################\n"
 sudo add-apt-repository ppa:bluetooth/bluez
 sudo apt update
 sudo apt upgrade
-mkdir utils
 cd utils
 
 sudo apt install unzip git htop clang-format curl wget software-properties-common apt-transport-https python-pip python3-pip libssl-dev libffi-dev python3-dev zlib1g-dev libcurl4-openssl-dev iperf3 bmon -y
 
 echo "#######################Downloading Cmake#######################\n"
+CMAKE_VERSION=3.18.2
 
-while true; do
-    read -p "Please download cmake first from their website and put it under utils/cmake-3.17.3 if you want to continue [Y/n]" yn
-    case $yn in
-        [Yy]* ) break;;
-        [Nn]* ) exit;;
-        * ) echo "Please answer yes or no.";;
-    esac
-done
-
-cd cmake-3.17.3
+tar -xvzf cmake-$CMAKE_VERSION.tar.gz
+cd cmake-$CMAKE_VERSION
 ./bootstrap --system-curl
 make -j4
 sudo make install
@@ -69,6 +61,12 @@ done
 
 sudo apt install wireshark -y
 sudo usermod -aG wireshark $(whoami)
+
+ARDUINO_VERSION=1.8.13
+unzip arduino-$ARDUINO_VERSION.zip
+cd arduino-$ARDUINO_VERSION
+sudo ./install.sh
+arduino
 
 while true; do
     read -p "System will reboot now. if you want to continue [Y/n]" yn

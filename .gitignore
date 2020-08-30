@@ -2,7 +2,9 @@
 __pycache__/
 .vscode/
 cuda-testing/
-utils/
+utils/cmake-3.18.2/
+utils/arduino-1.8.13/
+utils/cuda/
 
 # Top level CMakeLists.txt
 src/CMakeLists.txt

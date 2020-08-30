@@ -14,8 +14,12 @@ sudo apt install -y python-rosdep python-rosinstall python-rosinstall-generator 
 sudo rosdep init
 rosdep update
 source /opt/ros/melodic/setup.bash
-sudo apt install -y ros-${ROS_DISTRO}-rosserial ros-${ROS_DISTRO}-rosserial-server
+sudo apt install -y ros-${ROS_DISTRO}-rosserial*
 rosdep install --from-paths src --ignore-src --rosdistro=${ROS_DISTRO} -y
 sudo apt install libpcl-dev -y
 pip install -U matplotlib
 catkin_make
+cd ~/Arduino/libraries
+source /opt/ros/melodic/setup.bash
+rospack profile
+rosrun rosserial_arduino make_libraries.py .

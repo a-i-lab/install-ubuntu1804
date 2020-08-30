@@ -20,7 +20,7 @@
 
 4. Run the scripts in sequence, and watch for error messages
 
-5. **SPECIAL:** when running the nvidia script, i.e. `install-ubuntu1804-1-nvidia.sh`, go to the terminal only view by going `Ctrl+Alt+3` and run the nvidia script. At the very end of the script it will run a program called ./deviceQuery, if the output shows something like this, you are good. Then continue for reboot
+5. **SPECIAL:** when running the nvidia script, i.e. `install-ubuntu1804-1-nvidia.sh`, go to the terminal only view by going `Ctrl+Alt+F3` and run the nvidia script. At the very end of the script it will run a program called ./deviceQuery, if the output shows something like this, you are good. Then continue for reboot
 
    <img src="media/deviceQuery-success.png" width="700" height="400" />
 
