@@ -1,22 +1,22 @@
 #!/usr/bin/env bash
 
-set -euf -o pipefail
+# set -euf -o pipefail
 
 echo "#######################First time update########################\n"
-sudo add-apt-repository ppa:bluetooth/bluez
+# sudo add-apt-repository ppa:bluetooth/bluez
 sudo apt update
 sudo apt upgrade
 cd utils
 
-sudo apt install unzip git htop clang-format curl wget software-properties-common apt-transport-https python-pip python3-pip libssl-dev libffi-dev python3-dev zlib1g-dev libcurl4-openssl-dev iperf3 bmon -y
+sudo apt install unzip git htop clang-format curl wget software-properties-common apt-transport-https python-pip python3-pip libssl-dev libffi-dev python3-dev zlib1g-dev libcurl4-openssl-dev iperf3 bmon net-tools -y
 
 echo "#######################Downloading Cmake#######################\n"
-CMAKE_VERSION=3.18.2
+CMAKE_VERSION=3.19.4
 
 tar -xvzf cmake-$CMAKE_VERSION.tar.gz
 cd cmake-$CMAKE_VERSION
 ./bootstrap --system-curl
-make -j4
+make -j$(nproc)
 sudo make install
 cd ..
 
@@ -25,9 +25,9 @@ curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.s
 sudo apt-get install git-lfs -y
 git lfs install
 
-echo "#######################Downloading chrome#######################\n"
-wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-sudo apt install ./google-chrome-stable_current_amd64.deb -y
+#echo "#######################Downloading chrome#######################\n"
+#wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+#sudo apt install ./google-chrome-stable_current_amd64.deb -y
 
 echo "#######################Downloading typora#######################\n"
 wget -qO - https://typora.io/linux/public-key.asc | sudo apt-key add -
@@ -62,19 +62,19 @@ done
 sudo apt install wireshark -y
 sudo usermod -aG wireshark $(whoami)
 
-ARDUINO_VERSION=1.8.13
-unzip arduino-$ARDUINO_VERSION.zip
-cd arduino-$ARDUINO_VERSION
-sudo ./install.sh
-arduino
+#ARDUINO_VERSION=1.8.13
+#unzip arduino-$ARDUINO_VERSION.zip
+#cd arduino-$ARDUINO_VERSION
+#sudo ./install.sh
+#arduino
 
-while true; do
-    read -p "System will reboot now. if you want to continue [Y/n]" yn
-    case $yn in
-        [Yy]* ) break;;
-        [Nn]* ) exit;;
-        * ) echo "Please answer yes or no.";;
-    esac
-done
+#while true; do
+#    read -p "System will reboot now. if you want to continue [Y/n]" yn
+#    case $yn in
+#        [Yy]* ) break;;
+#        [Nn]* ) exit;;
+#        * ) echo "Please answer yes or no.";;
+#    esac
+#done
 
-sudo reboot
+#sudo reboot
